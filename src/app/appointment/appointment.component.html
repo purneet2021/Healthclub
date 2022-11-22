@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Appointment</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body (load) = "start()">
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="name">Enter your name  </label>
+                <input class="form-control" size="20" id="name " [(ngModel)] = "name" />
+            </div>
+            <div class="col-sm-4">
+                <label for="age">Enter your age  </label>
+                <input class="form-control" type="number" size="2" id="age" [(ngModel)] = "age"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <label for="email">Enter your email  </label>
+                <input class="form-control" type="email" size="20" id="email" [(ngModel)] = "email"/>
+            </div>
+            <div class="col-sm-4">
+                <label for="phno">Enter your mobile number  </label>
+                <input class="form-control" type="number" size="10" id="phno" [(ngModel)] = "phone"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address1">Address line 1 </label>
+            <input class="form-control" type="text" size="200" id="address1" [(ngModel)] = "address1"/>
+        </div>
+        <div class="form-group">
+            <label for="address2">Address line 2 </label>
+            <input class="form-control" type="text" size="2" id="address2" [(ngModel)] = "address2"/>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label for="city">Enter your city  </label>
+                <input class="form-control" type="text" size="20" [(ngModel)] = 'city' id="city" />
+            </div>
+            <div class="col-sm-3">
+                <label for="state">Enter your state  </label>
+                <input class="form-control" type="text" size="20" [(ngModel)] = 'state'  id="state" />
+            </div>
+            <div class="col-sm-3">
+                <label for="country">Enter your country  </label>
+                <input class="form-control" type="text" size="20" [(ngModel)] = 'country'  id="country" />
+            </div>
+            <div class="col-sm-2">
+                <label for="pin">Enter your pin code  </label>
+                <input class="form-control" type="number" size="6" [(ngModel)] = 'pincode' id="pin" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">Choose Trainer:</div>
+            <div class="col-sm-3">
+                <input class="radio-inline" type="radio" name="trainer" value="Male" [(ngModel)] = "trainer">Male Trainer
+            </div>
+            <div class="col-sm-3">
+                <input class="radio-inline" type="radio" name="trainer" value="Female" [(ngModel)] = "trainer" />Female Trainer
+            </div>
+            <div class="col-sm-3">
+                <input class="radio-inline" type="radio" name="trainer" value="Any" [(ngModel)] = "trainer"/>No Preference
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Do you need a physiotherapist?</label><br>
+            <div class="col-sm-4">
+                <input class="radio-inline" type="radio" name="physiotherapist" value="Yes" [(ngModel)] = "therapist" (change) = "calculateAmount()">Yes
+            </div>
+            <div class="col-sm-4">
+                <input class="radio-inline" type="radio" name="physiotherapist" value="No" [(ngModel)] = "therapist" (change) = "calculateAmount()">No
+            </div>
+        </div><br>
+        <div class="form-group">
+            <label>Select a package</label><br>
+            <input type="radio" name="package" value="500" [(ngModel)] = "Chosen" (change) = "defaultAmount()">One time appointment<br>
+            <input type="radio" name="package" value="400" [(ngModel)] = "Chosen" (change) = "defaultAmount()">Four sessions per week(Rs.400 per session)<br>
+            <input type="radio" name="package" value="300" [(ngModel)] = "Chosen" (change) = "defaultAmount()">Five sessions per week(Rs.300 per session)<br>
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input class="form-control" type="text" size="200" id="amount" [(ngModel)] = "Amount" [placeholder] = "Amount" disabled/>
+        </div>
+        <div class = "form-group" *ngIf = "tobeshown">
+            <label>Weeks</label>
+            <input type = "number" [(ngModel)] = "weeks" (change)="calculateAmount()" />
+        </div>
+        <button class="btn btn-primary" (click) = "validate()">Submit</button><br>
+        <div *ngIf = "isValid" class="alert alert-success">Success</div>
+        <div *ngIf = "!isValid" class="alert alert-danger">Failure</div>
+    </body>
+</html>

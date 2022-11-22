@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class = "container">
+            <nav class = "nav navbar-default">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Logo</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a routerLink="/home">Home</a></li>
+                    <li><a routerLink="/viewapplication">View Appointment</a></li>
+                    <li><a routerLink="/appointment">Place Appointment</a></li>
+                    <li><a routerLink="/queries">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <router-outlet></router-outlet>
+        <footer>
+            <nav class="nav navbar-inverse" style="color: white;">
+                <ul class="nav navbar-nav">
+                    <li>
+                        Useful Links
+                        <a routerLink="/home">Home</a>
+                        <a routerLink="/viewapplication">View Appointment</a>
+                        <a routerLink="/appointment">Place Appointment</a>
+                        <a routerLink="/queries">Contact Us</a>
+                    </li>
+                    <li>
+                        Contact
+                        <a routerLink="">Company Address</a>
+                        <a routerLink="">Company Email</a>
+                        <a routerLink="">Company Phone</a>
+                        <a routerLink="">Company Fax</a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>
